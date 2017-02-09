@@ -7,5 +7,3 @@
  - kvm [kvm quick start](kvm_quick_start.md)
  
  - wine [wine_quick_start](wine_quick_start.md)
- 
- - qemu [qemu_quick_start](qemu_quick_start.md) 
