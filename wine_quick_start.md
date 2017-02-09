@@ -25,3 +25,5 @@ sudo apt-get update
 sudo apt-get install --install-recommends winehq-devel
 ```
 
+# wine的使用
+在exe文件当前路径下，运行```wine *.exe```
