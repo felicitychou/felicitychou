@@ -15,7 +15,7 @@
 
     Staging 分支 `sudo apt-get install --install-recommends winehq-staging`
 
-refer:https://wiki.winehq.org/Ubuntu
+Refer:https://wiki.winehq.org/Ubuntu
 
 ```
 #!/bin/sh
