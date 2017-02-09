@@ -32,3 +32,11 @@ refer：
 https://help.ubuntu.com/community/KVM/Installation
 
 http://www.cyberciti.biz/faq/installing-kvm-on-ubuntu-16-04-lts-server/ 
+
+```
+#!/bin/sh
+sudo apt-get install qemu-kvm libvirt-bin virtinst bridge-utils
+sudo adduser `id -un` libvirtd
+sudo apt-get install virt-manager
+sudo apt-get install ssh-askpass
+```
