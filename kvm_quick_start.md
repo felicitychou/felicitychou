@@ -27,7 +27,7 @@
 
     ```$ sudo apt-get install ssh-askpass```
 
-refer：
+Refer：
 
 https://help.ubuntu.com/community/KVM/Installation
 

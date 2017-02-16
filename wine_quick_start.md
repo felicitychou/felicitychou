@@ -15,7 +15,7 @@
 
     Staging 分支 `sudo apt-get install --install-recommends winehq-staging`
 
-Refer:https://wiki.winehq.org/Ubuntu
+Refer: https://wiki.winehq.org/Ubuntu
 
 ```
 #!/bin/sh
@@ -26,4 +26,4 @@ sudo apt-get install --install-recommends winehq-devel
 ```
 
 # wine的使用
-在exe文件当前路径下，运行```wine *.exe```
+linux终端下，切换到exe文件当前路径下，运行```wine *.exe```
