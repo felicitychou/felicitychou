@@ -42,15 +42,29 @@ set -x 打开执行命令跟踪（脚本中）
 |sed|文本替换|sed [OPTION]... {script-only-if-no-other-script} [input-file]...||
 |head|显示文件前几行|head [OPTION]... [FILE]...|-n 指定行数||
 |tail|显示文件后几行|tail [OPTION]... [FILE]...|-n 指定行数||
+|dd|拷贝数据|
+|file|识别文件类型|
+|od|八进制码转存|
+|strings|查找文件中的可打印字符|
+|df|磁盘可用空间|
+|du|占用空间|
+|cmp|比较文件|
+|diff|比较文件有什么不同|
+|md5sum|计算md5值|
+|gpg|加密或数字签名|
+|uptime|显示开机指引的时间用户数及平均负载|
+|ps|进程情况|
+|top|实时进程情况及资源使用情况|
+|kill|结束进程|
+|strace|跟踪进程的系统调用| 
+|sleep|延迟|
+|at|延迟至特定时间|
+|batch|为资源控制而延迟|
+|crontab|计划任务|
+|chmod|修改文件权限|
 
-
-
-dd 拷贝数据
-file识别文件类型
-od八进展码转存
-strings查找文件中的可打印字符
-
-test 
+test 参数表
+```
 -d file 目录
 -e file 存在
 -f file 一般文件
@@ -66,31 +80,11 @@ n1 -lt n2 整数n1小于n2
 n1 -gt n2 整数n1大于n2
 n1 -le n2 整数n1小于等于n2
 n1 -ge n2 整数n1大于等于n2
+```
 
-df 磁盘可用空间
-du 占用空间
-cmp 比较文件
-diff 比较文件有什么不同
-
-md5sum 
-gpg
-gpg 导入公钥
-验证签名
-
-uptime 显示开机指引的时间用户数 及平均负载
-ps
-top
-kill
-strace 
-sleep
-at 延迟至特定时间
-batch 为资源控制而延迟
-crontab 指定时间再执行
-
-/proc文件系统
-内核数据
 
 安全性shell脚本提示
+```
 勿将当前目录置于PATH下
 为bin目录设置保护（$PATH 下每一个目录都只有它的拥有者可以写入）
 写程序前，先想清楚要做什么如何实施，开始运作前，不断测试，错误与失败的处理也应该设计在程序里。
@@ -107,13 +101,13 @@ crontab 指定时间再执行
 尽可能使用setgid而不要用setuid
 使用新用户而不是root
 尽可能限制使用setuid的代码
-
-
-chmod 修改文件权限
+```
 
 
 重要的UNIX命令
+
 Shell与内置命令
+```
 . 在当前Shell下，读取与执行指定文件
 break 切断循环
 cd 更改当前目录
@@ -123,16 +117,16 @@ eval 给定文本视为shell命令
 exec 无参数改变shell打开的文件，带参数则以其他程序置换shell
 exit 退出shell
 export 将变量导出到接下来的程序环境中
-false 
+false 逻辑假
 getopts 处理命令行选项
 read 读取
 readonly 变量标记为制度
-return
+return 返回
 ser 显示shell变量与变量值、设置shell选项、设置命令行参数
 shift 一次移动一个或多个命令行参数
 test 计算表达式
 trap 管理操作系统信号
-true
+true 逻辑真
 type 命令类型
 typeset 生命变量与管理它们的类型与属性
 ulimit 设置或显示系统对每个进程所加的限制
@@ -144,8 +138,10 @@ id 显示用户与组ID及名称信息
 date 显示现在的日期与时间
 who 显示已登录的用户列表
 stty 处理终端设备的状态
+```
 
 文本处理
+```
 awk
 cat
 cmp 文件比较
@@ -171,8 +167,10 @@ tr 转换、删除或减少重复字符的执行
 unexpand 将空格字符转换成适当数量的制表字符
 uniq 删除或计算已排序输入中的重复航
 wc 计算行、单词、字符或字节
+```
 
 文件处理
+```
 bzip2 bunzip2 及高品质的文件压缩与解压缩
 chgrp 更改文件与目录的组
 chmod 更改文件与目录的权限
@@ -202,8 +200,10 @@ tar 打包
 touch 更新文件的秀修改或访问时间
 umask 设置默认文件建立权限掩码
 zip unzip 打包与压缩解压缩程序
+```
 
 进程
+```
 at 指定时间执行工作
 batch 等待资源执行工作
 cron 在指定时间执行工作，周期性
@@ -217,8 +217,10 @@ sleep 停止一定描述
 top 交互式显示系统的进程，及资源占用情况
 wait 等待一个或多个进程完成
 xargs 读取 标准输入上的字符串
+```
 
 其他
+```
 cvs 源代码管理
 info 在线文件浏览
 locale 显示可用的locale相关信息
@@ -231,4 +233,4 @@ man 显示在线手册页
 scp 安全进行文件的复制
 ssh 远程shell
 uptime 显示系统一开机多久及其负载信息
-
+```
