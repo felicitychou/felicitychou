@@ -1,4 +1,6 @@
 
+**类似漏洞挖掘Tips：未授权服务在公网开放**
+
 # Redis未授权访问写入ssh公钥获取服务器访问权限
 
 Refer：http://blog.knownsec.com/2015/11/analysis-of-redis-unauthorized-of-expolit/
@@ -32,22 +34,20 @@ $ src/redis-server
 ## step 2. 实施攻击前准备
 
 1. 攻击方用ssh连接被攻击方，发现是需要密码登录。
-```
-ssh 192.168.188.132
-```
-
-![](ssh_fail.png)
+    ```
+    ssh 192.168.188.132
+    ```
+    ![](ssh_fail.png)
 
 2. 攻击方生成一对ssh公私钥。
-```
-ssh-keygen –t rsa
-```
-
-![](create_ssh_key.png)
+    ```
+    ssh-keygen –t rsa
+    ```
+    ![](create_ssh_key.png)
 
 ## step 3. 攻击
 
-**攻击者将生成公钥保存到被攻击方的/root/.ssh/ authorized_keys**
+**攻击者将生成公钥保存到被攻击方的/root/.ssh/authorized_keys**
 
 1. 攻击方访问被攻击方的Redis服务（若不指定端口，连接默认端口6379）。
  ```
@@ -75,6 +75,7 @@ root/.ssh/ authorized_keys.
  ```
  exit
  ```
+
 ![](attack_cmd.png)
 
 
