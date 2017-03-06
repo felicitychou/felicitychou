@@ -67,5 +67,40 @@ clone
 
 
 
+低交互蜜罐
+检测已知的漏洞利用攻击，测量你的网络受攻击的频率。
 
+欺骗工具包 DTK 绑定机器的未用端口，对任何想探测这些端口的人显示欺骗性服务。
+http://all.net/dtk/
+
+LaBrea 
+发现空闲IP地址，并开始代替应答连接，一旦建立连接，试图尽可能长时间地黏住发送者。
+检测IP地址是否可用 使用ARP协议
+
+LaBrea 支持两种放慢连接传输速度的方法
+窗口调节 ： 非常小的接收窗口
+持久捕捉： 接收窗口大小为0
+
+Tiny Honeypot
+针对任何端口上的任何连接，提供一个登录标识和一个超级用户外壳程序
+收集你得到的所有数据
+使用xinetd绑定一个端口，使用内置的防火墙Netfilter将到所有端口的流量重定向到正在监听的端口
+端口映射 RPC服务映射到本地端口号
+
+GHH google入侵蜜罐
+johnny Long
+johnny.ihackstuff.com/index.php?module=prodreviews
+
+
+PHP.HoP
+
+
+保护
+chroot
+
+Systrace
+在允许系统调用之前，沙河检车系统调用及其参数
+
+Honeyd
+http://www.honeyd.org/release.php
 
