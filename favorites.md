@@ -15,3 +15,5 @@ Neo4j(https://neo4j.com/)
 Celery(http://docs.celeryproject.org/en/latest/index.html)
 
 Supervisor(http://supervisord.org/)
+
+Pandas(https://pandas.pydata.org/)
