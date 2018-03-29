@@ -21,3 +21,6 @@ Pandas(https://pandas.pydata.org/)
 
 # MAC
 Homebrew(https://brew.sh/index.html)
+
+# other
+Jupyter(http://jupyter.org/)
