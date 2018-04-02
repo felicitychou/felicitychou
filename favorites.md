@@ -21,6 +21,8 @@ Pandas(https://pandas.pydata.org/)
 
 Flask-Security(https://pythonhosted.org/Flask-Security/index.html)
 
+requests(http://docs.python-requests.org/zh_CN/latest/index.html)
+
 # MAC
 Homebrew(https://brew.sh/index.html)
 
