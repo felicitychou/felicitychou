@@ -19,6 +19,8 @@ Supervisor(http://supervisord.org/)
 
 Pandas(https://pandas.pydata.org/)
 
+Flask-Security(https://pythonhosted.org/Flask-Security/index.html)
+
 # MAC
 Homebrew(https://brew.sh/index.html)
 
