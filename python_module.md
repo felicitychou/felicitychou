@@ -12,3 +12,6 @@
  - optparse
 
 
+Excel
+http://www.python-excel.org/
+
